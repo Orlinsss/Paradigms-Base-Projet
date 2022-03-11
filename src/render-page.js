@@ -1,10 +1,32 @@
 const createChart = require("./graph");
 
+// renderPage = require("./table");
+
+
 /**
  * Génère le rendu de la page.
  * @param {import("../types").Mesure[]} data
  * @param {boolean} withGraph Pour les tests
  */
+ 
+function CreateTab (table) {
+  // créer header -> une ligne  et columns (date, capteur, valeur), stocké dans var table.
+
+var table = document.createElement("table");
+divTable.appendChild(table);
+table.innerHTML = `
+ <thead>
+   <tr>
+     <th>date</th>
+     <th>capteur</th>
+     <th>valeur</th>
+   </tr>
+ </thead>
+ `;
+
+return table.innerHTML;
+};
+
 function renderPage(data, withGraph) {
   const divTable = document.getElementById("table");
   divTable.innerHTML = "";
@@ -13,17 +35,20 @@ function renderPage(data, withGraph) {
     window.chart.destroy();
   }
 
-  const table = document.createElement("table");
-  divTable.appendChild(table);
-  table.innerHTML = `
-    <thead>
-      <tr>
-        <th>date</th>
-        <th>capteur</th>
-        <th>valeur</th>
-      </tr>
-    </thead>
-    `;
+  // const table = document.createElement("table");
+  // divTable.appendChild(table);
+  // table.innerHTML = `
+  //   <thead>
+  //     <tr>
+  //       <th>date</th>
+  //       <th>capteur</th>
+  //       <th>valeur</th>
+  //     </tr>
+  //   </thead>
+  //   `;
+
+
+CreateTab(table);
 
   let bruitParHeure = {};
 
